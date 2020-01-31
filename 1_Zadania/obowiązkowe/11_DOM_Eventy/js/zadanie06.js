@@ -1,16 +1,16 @@
-window.addEventListener('DOMContentLoaded', function() {
-  var globalX = document.querySelector('#globalX'),
-    globalY = document.querySelector('#globalY'),
-    localX = document.querySelector('#localX'),
-    localY = document.querySelector('#localY');
+document.addEventListener('DOMContentLoaded', function () {
 
-  document.addEventListener('mousemove', function(event) {
-    globalX.textContent = event.clientX;
-    globalY.textContent = event.clientY;
-  });
+    const box = document.querySelector('#box');
+    const globalX = document.querySelector('#globalX');
+    const globalY = document.querySelector('#globalY');
+    const localX = document.querySelector('#localX');
+    const localY = document.querySelector('#localY');
 
-  document.getElementById('box').addEventListener('mousemove', function(event) {
-    localX.textContent = event.clientX - globalX.textContent;
-    localY.textContent = event.clientY - globalY.textContent;
-  });
+    box.addEventListener('mousemove', function(e) {
+        globalX.innerHTML = e.pageX;
+        globalY.innerHTML = e.pageY;
+        localX.innerHTML = e.pageX - this.offsetLeft;
+        localY.innerHTML = e.pageY - this.offsetTop;
+    });
+
 });

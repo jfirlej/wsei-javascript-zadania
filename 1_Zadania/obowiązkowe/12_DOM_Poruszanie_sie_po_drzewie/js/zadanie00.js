@@ -1,23 +1,21 @@
-window.addEventListener('DOMContentLoaded', () => {
-  var elFirst = document.getElementsByClassName('first')[0];
-  var elFirstChildren = elFirst.children[0];
-  var elFirstThirdChildren = elFirst.children[2];
+document.addEventListener('DOMContentLoaded', function() {
 
-  var elSecond = document.getElementById('second');
-  var elSecondParent = elSecond.parentElement;
-  var elSecondParentChildren = elSecondParent.children[3];
+    const first1 = document.querySelector('.first').children[0].children[2];
+    console.log(first1);
 
-  var elAttrDataEx = document.querySelector('*[data-ex="third"]');
-  var GrandParent = elAttrDataEx.parentElement.parentElement;
+    const second = document.querySelector('#second').parentNode.children[3];
+    console.log(second);
 
-  // ostatnie dziecko
-  var elAttrLastChild = GrandParent.children[GrandParent.children.length - 1];
-  var elAttrFirstChild = GrandParent.children[0];
-  var elAttrAvgChild =
-    GrandParent.children[GrandParent.children.length / 2 - 1];
+    const dataExGrandParent = document.querySelector('[data-ex="third"]')
+        .parentElement.parentElement;
 
-  var div = document.querySelector('div[class="forth"]');
-  var parent = div.parentElement;
-  var firstChild = parent.getElementsByTagName('article')[0];
-  var p = firstChild.getElementsByTagName('p')[1];
+    const lastChild = dataExGrandParent
+        .children[dataExGrandParent.children.length - 1];
+
+    const firstChild = lastChild.children[0];
+
+    const answer = firstChild.children[Math.floor(firstChild.children.length / 2)];
+    console.log(answer);
+
+    
 });

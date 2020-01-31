@@ -1,17 +1,13 @@
-window.addEventListener('DOMContentLoaded', () => {
-  var links = document.getElementsByTagName('a');
-  for (const link of links) {
-    link.addEventListener('click', function() {
-      var next = this.nextElementSibling;
-      if (next != null) {
-        if (
-          next.style.display == '' ||
-          next.style.display == ' ' ||
-          next.style.display == 'none'
-        ) {
-          next.style.display = 'block';
-        } else next.style.display = 'none';
-      }
-    });
-  }
+document.addEventListener('DOMContentLoaded', function() {
+
+    const btns = document.querySelectorAll('.button');
+    console.log(btns);
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.nextElementSibling === 'null') { return; }
+            this.nextElementSibling.classList.toggle('hidden');
+        });
+    })
+
 });

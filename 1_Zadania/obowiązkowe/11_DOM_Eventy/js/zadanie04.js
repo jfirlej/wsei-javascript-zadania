@@ -1,11 +1,14 @@
-window.addEventListener('DOMContentLoaded', () => {
-  var buttons = document.querySelectorAll('button');
-  var span = document.querySelector('p > span');
+document.addEventListener('DOMContentLoaded', function() {
 
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', () => {
-      var tmp = span.innerHTML;
-      span.innerHTML = ++tmp;
+    const btns = document.querySelectorAll('button');
+    const counter = document.querySelector('.counter');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            let old = counter.innerHTML;
+            old++;
+            counter.innerHTML = old;
+        });
     });
-  }
+
 });

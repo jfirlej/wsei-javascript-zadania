@@ -1,11 +1,15 @@
-window.addEventListener('DOMContentLoaded', function() {
-  var data = document.getElementById('invoiceData');
-  data.style.display = 'none';
+document.addEventListener('DOMContentLoaded', function() {
 
-  const checkBox = document.getElementById('invoice');
-  checkBox.addEventListener('click', function() {
-    if (this.checked) {
-      data.style.display = 'block';
-    } else data.style.display = 'none';
-  });
+    const checkbox = document.querySelector('#invoice');
+    const invoiceData = document.querySelector('#invoiceData');
+    invoiceData.style.display = 'none';
+
+    checkbox.addEventListener('change', function(e) {
+        if (e.target.checked) {
+            invoiceData.style.display = 'block';
+        } else {
+            invoiceData.style.display = 'none';
+        }
+    });
+
 });

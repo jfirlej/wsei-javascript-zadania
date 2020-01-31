@@ -1,28 +1,17 @@
-window.addEventListener('DOMContentLoaded', event => {
-  var parents = document.querySelectorAll('div[class="parent"]');
+//zad0a
 
-  for (let i = 0; i < parents.length; i++) {
-    parents[i].addEventListener('mouseover', () => {
-      var children = parents[i].querySelector('div[class="children"]');
-      children.style.display = 'block';
+const parents = document.querySelectorAll('.parent');
 
-      // 0b
-      // showChildrenElement(parents[i]);
+parents.forEach(el => {
+    el.addEventListener('mouseenter', function() {
+        this.children[0].style.display = 'block';
     });
-    parents[i].addEventListener('mouseout', () => {
-      var children = parents[i].querySelector('div[class="children"]');
-      children.style.display = 'none';
+});
 
-      // 0b
-      // hideChildrenElement(parents[i]);
+parents.forEach(el => {
+    el.addEventListener('mouseleave', function() {
+        (function hideChildrenElement(el) {
+            el.children[0].style.display = 'none';
+        })(this);
     });
-  }
-
-  // 0b
-  function hideChildrenElement(el) {
-    el.getElementsByClassName('children')[0].style.display = 'none';
-  }
-  function showChildrenElement(el) {
-    el.getElementsByClassName('children')[0].style.display = 'block';
-  }
 });

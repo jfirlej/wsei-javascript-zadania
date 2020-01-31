@@ -1,34 +1,22 @@
-window.addEventListener('DOMContentLoaded', function() {
-  // chowamy wszystkie obrazki
-  hideElements();
-
-  // reakcja na kliknięcie przycisku
-  document.querySelector('button').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    var select = document.querySelector('select[class="form-control"]');
-    switch (select.value) {
-      case 'Windows':
-        hideElements();
-        document.querySelector('img[alt="Windows"]').style.display = 'block';
-        break;
-
-      case 'Ubuntu':
-        hideElements();
-        document.querySelector('img[alt="Ubuntu"]').style.display = 'block';
-        break;
-
-      case 'Os X':
-        hideElements();
-        document.querySelector('img[alt="Apple"]').style.display = 'block';
-        break;
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    const imgs = document.querySelectorAll(".page-header img");
+    const select = document.querySelector("select");
+    const btn = document.querySelector("button");
+  
+    imgs.forEach(img => {
+      img.style.display = "none";
+    });
+  
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      let selectedIndex = select.selectedIndex;
+  
+      for (let i = 0; i < imgs.length; i++) {
+        if (i === selectedIndex) {
+          imgs[i].style.display = "block";
+        } else {
+          imgs[i].style.display = "none";
+        }
+      }
+    });
   });
-});
-
-function hideElements() {
-  var imgs = document.getElementsByTagName('img');
-  for (const img of imgs) {
-    img.style.display = 'none';
-  }
-}

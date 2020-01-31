@@ -1,12 +1,12 @@
-window.addEventListener('DOMContentLoaded', () => {
-  var divs = document.querySelectorAll('div');
-  console.log(divs);
+document.addEventListener('DOMContentLoaded', function () {
 
-  for (const div of divs) {
-    div.addEventListener('click', function() {
-      var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      this.style.backgroundColor = randomColor;
-      console.log('click');
+    const divs = document.querySelectorAll('.box');
+
+    divs.forEach(div => {
+        div.addEventListener('click', function () {
+            this.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        });
     });
-  }
+
+
 });

@@ -1,6 +1,7 @@
-window.addEventListener('DOMContentLoaded', () => {
-  var btn = document.getElementById('mainBtn');
-  btn.addEventListener('click', () => {
-    console.log('Hura! Działa!');
-  });
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelector('#mainBtn').addEventListener('click', function () {
+        console.log('Hura! Działa!');
+    });
+
 });

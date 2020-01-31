@@ -1,13 +1,17 @@
-window.addEventListener('DOMContentLoaded', function() {
-  var divs = document.getElementsByTagName('div');
-  for (const div of divs) {
-    div.addEventListener('mouseover', function() {
-      var lis = this.querySelectorAll('ul li');
-      for (let i = 0; i < lis.length; i++) {
-        lis[i].style.backgroundColor = 'green';
-      }
-      lis[0].style.backgroundColor = 'red';
-      lis[lis.length - 1].style.backgroundColor = 'blue';
-    });
-  }
+document.addEventListener('DOMContentLoaded', function() {
+
+    const divs = document.querySelectorAll('.listContainer');
+    console.log(divs);
+
+    divs.forEach(div => {
+        div.addEventListener('mouseenter', function() {
+            let ul = this.children[0];
+            ul.children[0].style.color ='red';
+            ul.children[ul.children.length -1].style.color = 'blue';
+            for (let i = 1; i < ul.children.length -1; i++) {
+                ul.children[i].style.color = 'green';
+            }
+        });
+    })
+
 });
